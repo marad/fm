@@ -30,13 +30,13 @@ directory to any of your projects by it's name. Just put this in your
 /.bashrc/ or /.zshrc/ or /.yourfavouriteshrc/:
 
 #+BEGIN_QUOTE
-> alias cdp='f() { cd $(fm path "$1") };f'
+alias cdp='f() { cd $(fm path "$1") };f'
 #+END_QUOTE
 
 After adding this you can /cd/ to any of your projects by doing:
 
 #+BEGIN_QUOTE
-> cdp project-name
+cdp project-name
 #+END_QUOTE
 
 *** Obtaining compiled executable version
