@@ -1,9 +1,10 @@
 #!/usr/bin/sbcl --script
+
 ;; Managed directory
-(defvar *dir* "/home/morti/dev/")
+(defvar *dir* "/home/local/ALLEGROGROUP/marcin.radoszewski/dev/")
 
 ;; Maximum level of nesting projects
-(defvar *max-nesting-level* 2)
+(defvar *max-nesting-level* 3)
 
 ;; TOOLS
 
@@ -148,12 +149,11 @@
 (defun handle-ls (args)
   (format t "~{~a~%~}~%" (mapcar #'metadata-name (find-project :tags args))))
 
-(defun handle-cd (args)
-  (format t "Handling cd with ~a~%" args))
+(defun handle-path (args)
+  (format t "~a~%" (metadata-path (find-by-name (car args)))))
 
 (defun handle-meta ()
   (print-meta (read-project-metadata (current-project-folder))))
-
 
 (defun handle-tag-add (tags)
   (let ((meta (read-project-metadata (current-project-folder))))
@@ -176,7 +176,7 @@
   (let ((cmd (car command-args))
         (args (cdr command-args)))
     (cond ((equal cmd "ls") (handle-ls args))
-          ((equal cmd "cd") (handle-cd args))
+          ((equal cmd "path") (handle-path args))
           ((equal cmd "meta") (handle-meta))
           ((equal cmd "tag") (handle-tag args))
           (t (format t "Unknown command!~%")))))

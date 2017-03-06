@@ -1,0 +1,56 @@
+* Folder Manager
+
+If you are like me you probably have tons of unfinished projects on your hard
+drive. It turns out that, after a while, finding specific project is quite
+hard.
+
+This tool helps to organize your projects by simply tagging them.
+
+
+** Installation
+
+There are two ways of installing this fine software for your personal use.
+
+*** Using your SBCL installation
+
+As you can see this tool is written in Common Lisp. SBCL is one of many
+implementations of CL. This software would probably work on most of them but
+I use SBCL and tested it only there.
+
+So to get this up and running you may simply get the contents of the /fm.cl/
+file. Make it executable and maybe rename it to /fm/. Like this:
+
+> curl -o ~/bin/fm https://raw.githubusercontent.com/marad/fm/master/fm.cl
+> chmod +x ~/bin/fm
+
+As a bonus you can add an alias to your favourite shell to quickly change
+directory to any of your projects by it's name. Just put this in your
+/.bashrc/ or /.zshrc/ or /.yourfavouriteshrc/:
+
+> alias cdp='f() { cd $(fm path "$1") };f'
+
+After adding this you can /cd/ to any of your projects by doing:
+
+> cdp project-name
+
+*** Obtaining compiled executable version
+
+Well this one is quite easy. Just let me know that you would like such
+executable and I'll compile it for you.
+
+If this projects get popular enough (which I don't think will happen) I'll
+start realising binary versions in advance. Till then you can create an issue
+for me to compile it.
+
+** Commands
+
+   - *fm ls* - list all available projects
+   - *fm ls tag1 tag2* - list projects with provided tags
+   - *fm path <project-name>* - returns path by project name
+   - *fm meta* - show metadata for current project
+   - *fm tag add tag1 tag2* - add tags to current project
+   - *fm tag remove tag1 tag2* - remove tags from current project
+
+** ToDo
+
+   - Add configuration file
