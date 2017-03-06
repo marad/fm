@@ -29,15 +29,15 @@ As a bonus you can add an alias to your favourite shell to quickly change
 directory to any of your projects by it's name. Just put this in your
 /.bashrc/ or /.zshrc/ or /.yourfavouriteshrc/:
 
-#+BEGIN_VERSE
+#+BEGIN_SRC bash
 alias cdp='f() { cd $(fm path "$1") };f'
-#+END_VERSE
+#+END_SRC
 
 After adding this you can /cd/ to any of your projects by doing:
 
-#+BEGIN_VERSE
+#+BEGIN_SRC bash
 cdp project-name
-#+END_VERSE
+#+END_SRC
 
 *** Obtaining compiled executable version
 
