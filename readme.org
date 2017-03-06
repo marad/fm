@@ -20,10 +20,10 @@ I use SBCL and tested it only there.
 So to get this up and running you may simply get the contents of the /fm.cl/
 file. Make it executable and maybe rename it to /fm/. Like this:
 
-#+BEGIN_VERSE
+#+BEGIN_SRC bash
 curl -o ~/bin/fm https://raw.githubusercontent.com/marad/fm/master/fm.cl
 chmod +x ~/bin/fm
-#+END_VERSE
+#+END_SRC
 
 As a bonus you can add an alias to your favourite shell to quickly change
 directory to any of your projects by it's name. Just put this in your
