@@ -20,18 +20,24 @@ I use SBCL and tested it only there.
 So to get this up and running you may simply get the contents of the /fm.cl/
 file. Make it executable and maybe rename it to /fm/. Like this:
 
-> curl -o ~/bin/fm https://raw.githubusercontent.com/marad/fm/master/fm.cl
-> chmod +x ~/bin/fm
+#+BEGIN_QUOTE
+curl -o ~/bin/fm https://raw.githubusercontent.com/marad/fm/master/fm.cl
+chmod +x ~/bin/fm
+#+END_QUOTE
 
 As a bonus you can add an alias to your favourite shell to quickly change
 directory to any of your projects by it's name. Just put this in your
 /.bashrc/ or /.zshrc/ or /.yourfavouriteshrc/:
 
+#+BEGIN_QUOTE
 > alias cdp='f() { cd $(fm path "$1") };f'
+#+END_QUOTE
 
 After adding this you can /cd/ to any of your projects by doing:
 
+#+BEGIN_QUOTE
 > cdp project-name
+#+END_QUOTE
 
 *** Obtaining compiled executable version
 
