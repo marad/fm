@@ -60,3 +60,4 @@ for me to compile it.
 ** ToDo
 
    - Add configuration file
+   - Add some tests
