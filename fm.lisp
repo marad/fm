@@ -1,3 +1,5 @@
+(in-package #:folder-manager)
+
 ;; Managed directory
 (defvar *dir* "/home/morti/dev/")
 
@@ -157,9 +159,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; CLI Interface
 
-(defun cli-command ()
-  (cadr *posix-argv*))
-
 (defun handle-ls (args)
   (format t "~{~a~%~}" (mapcar #'meta-name (find-project :tags (list->set args)))))
 
@@ -213,5 +212,5 @@ help - show this message~%"))
           ((equal cmd "help") (print-help))
           (t (print-help)))))
 
-(defun main ()
-  (handle-command (cdr *posix-argv*)))
+(defun main (args)
+  (handle-command (cdr args)))

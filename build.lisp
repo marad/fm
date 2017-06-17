@@ -1,6 +1,6 @@
-#!/usr/bin/sbcl --script
+(require :folder-manager)
 
-;;(defun create-exe ())
-(load "setup.lisp")
-(load "fm.lisp")
-(sb-ext:save-lisp-and-die "fm" :toplevel #'main :executable t)
+(defun run ()
+  (folder-manager:main *posix-argv*))
+
+(sb-ext:save-lisp-and-die "fm" :toplevel #'run :executable t)
