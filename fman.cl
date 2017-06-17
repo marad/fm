@@ -1,2 +1,2 @@
 
-((:TAGS "cli" "project" "manager" "folder" "lisp")) 
+(:PCODE 1 #{ "file" "lisp" "manager" }) 
