@@ -142,7 +142,9 @@
 
 (defun project-path (name)
   "Returns project path by name"
-  (meta-path (find-by-name name)))
+  (if (null name)
+      (meta-path (find-by-name name))
+      nil))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Printing data
@@ -165,7 +167,9 @@
 (defun handle-path (args)
   (let ((path (if (null args)
                   (current-project-folder)
-                  (meta-path (find-by-name (car args))))))
+                  ;;(meta-path (find-by-name (car args)))
+                  (project-path (car args))
+                  )))
     (format t "~a~%" path)))
 
 (defun handle-meta ()
