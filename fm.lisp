@@ -137,14 +137,17 @@
 
 (defun find-by-name (name)
   "Finds project by name"
-  (first (remove-if-not #'(lambda (meta) (equal (meta-name meta) name))
-                        (all-metas))))
+  (->> (remove-if-not #'(lambda (meta) (equal (meta-name meta) name))
+                      (all-metas))
+       (first)
+       (fail-if-nil :project-not-found)))
 
 (defun project-path (name)
   "Returns project path by name"
-  (if (null name)
-      (meta-path (find-by-name name))
-      nil))
+  (->> (fail-if-nil :project-name-not-provided name)
+       (flat-map #'find-by-name)
+       (lift #'meta-path)
+       ))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Printing data
@@ -167,8 +170,8 @@
 (defun handle-path (args)
   (let ((path (if (null args)
                   (current-project-folder)
-                  ;;(meta-path (find-by-name (car args)))
-                  (project-path (car args))
+                  (->> (project-path (car args))
+                       (get-or-default "Path not found for given project"))
                   )))
     (format t "~a~%" path)))
 
